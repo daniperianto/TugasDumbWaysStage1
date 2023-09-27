@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="../css/contact.css">
     <title>Contact</title>
 </head>
 <body>
@@ -11,13 +11,13 @@
     <nav>
         <div class="nav-left">
             <ul>
-                <li> <img src="image/logo.png" alt="logo"> </li>
-                <li> <a href="index.html">Home</a> </li>
+                <li> <img src="../image/logo.png" alt="logo"> </li>
+                <li> <a href="../index.html">Home</a> </li>
                 <li> <a href="#">My Project</a> </li>
             </ul>
         </div>
         <div class="nav-right">
-            <a href="contact.html">Contact Me</a>
+            <a href="/html/contact.html">Contact Me</a>
         </div>
     </nav>
 
@@ -37,16 +37,17 @@
 
         <div>
             <label for="input-number">Phone Number</label>
-            <input type="number" id="input-number" required>
+            <input type="text" id="input-number" required>
         </div>
 
         <div>
             <label for="input-subject">Subject</label>
                 <select id="input-subject" required>
                     <option value="" hidden></option>
-                    <option>Frontend</option>
-                    <option>Backend</option>
-                    <option>Fullstack</option>
+                    <option>Hobby</option>
+                    <option>Important</option>
+                    <option>Interest</option>
+                    <option>Random</option>
                 </select>
         </div>
 
@@ -56,9 +57,11 @@
         </div>
 
         <div>
-            <button>Submit</button>
+            <button type="button" onclick="submitData()">Submit</button>
         </div>
 
     </form>
+
+    <script src="../js/contact.js"></script>
 </body>
 </html>

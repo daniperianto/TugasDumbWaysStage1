@@ -31,6 +31,10 @@ nav ul li {
     font-size: 20px;
 }
 
+nav ul li a:hover {
+    color: orangered;
+}
+
 .nav-left {
     flex: 50%;
 }
@@ -46,6 +50,10 @@ nav ul li {
     color: white;
     padding: 8px 22px;
     border-radius: 5px;
+}
+
+.nav-right a:hover {
+    background-color: orangered;
 }
 
 
@@ -106,4 +114,9 @@ button {
     float: right;
     font-weight: bold;
     font-size: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.1) ;
 }
