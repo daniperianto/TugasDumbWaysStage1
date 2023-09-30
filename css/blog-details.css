@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ebeaea;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    background-color: #f7f7f7ec
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+}
+
+nav ul li {
+    margin-right: 30px;
+    font-size: 20px;
+}
+
+nav ul li a:hover {
+    color: orangered;
+}
+
+.nav-left {
+    flex: 50%;
+}
+
+.nav-right {
+    flex: 50%;
+    text-align: end;
+    margin-right: 60px;
+}
+
+.nav-right a {
+    background-color: black;
+    color: white;
+    padding: 8px 22px;
+    border-radius: 5px;
+    border: none;
+}
+
+.nav-right a:hover {
+    background-color: orangered;
+}
+
+.active {
+    font-weight: bold;
+}
+
+/* End of NavBar */
+
+/* Blog Details */
+.blog-details {
+    display: flex;
+    justify-content: center;
+}
+
+.blog-details-containers {
+    width: 90%;
+    margin: 40px 0;
+}
+
+.blog-details-containers h1{
+    font-size: 44px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.blog-details-containers .blog-information {
+    display: flex;
+    flex-direction: row;
+}
+
+.blog-information .blog-picture {
+    flex: 65%;
+    margin-right: 40px;
+}
+
+.blog-information .blog-picture img {
+    width: 100%;
+}
+
+.blog-information .blog-duration-and-technology {
+    flex: 35%;
+}
+
+.blog-information h2 {
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.blog-duration-and-technology div div {
+    display: flex;
+    flex-direction: row;
+}
+
+.blog-duration-and-technology img {
+    width: 40px;
+    margin-right: 10px;
+    margin-bottom: 0;
+    position: relative;
+    top: 15px;
+}
+
+.blog-duration-and-technology p {
+    font-size: 20px;
+    font-weight: 500;
+    color: #545454;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.blog-duration-and-technology .blog-technology {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.blog-content {
+    margin-top: 40px;
+}
+
+.blog-content p {
+    font-size: 17px;
+    font-weight: 500;
+    text-align: justify;
+}

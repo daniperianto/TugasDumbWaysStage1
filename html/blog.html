@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/blog.css">
+    <title>Blog</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-left">
+            <ul>
+                <li> <img src="../image/logo.png" alt="logo"> </li>
+                <li> <a class="active" href="../index.html">Home</a> </li>
+                <li> <a href="#">My Project</a> </li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <a href="/html/contact.html">Contact Me</a>
+        </div>
+    </nav>
+
+
+    <!-- Form -->
+    <div class="blog">
+        <div class="blog-form">
+            <div class="blog-form-container">
+                <form>
+                    <h1>ADD MY PROJECT</h1>
+                    
+                    <div class="blog-project-name">
+                        <label for="input-project-name">Project Name</label>
+                        <input type="text" id="input-project-name">
+                    </div>   
+                    
+                    <div class="blog-date">
+                        <div class="blog-start-date">
+                            <label for="input-start-date">Start Date</label>
+                            <input type="date" id="input-start-date">
+                        </div>
+                        <div class="blog-end-date">
+                            <label for="input-end-date">End Date</label>
+                            <input type="date" id="input-end-date">
+                        </div>
+                    </div>
+
+                    <div class="blog-description">
+                        <label for="blog-description">Description</label>
+                        <textarea id="blog-description" rows="4"></textarea>
+                    </div>
+                        
+                    <div class="blog-technologies">
+                        <label>Technologies</label>
+                        <div class="checkbox-container">
+                            <div class="checkbox-container-left">
+                                <div>
+                                    <input type="checkbox" id="node-js">
+                                    <label for="node-js">Node Js</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="react-js">
+                                    <label for="react-js">React Js</label>
+                                </div>
+                            </div>
+                            <div class="checkbox-container-right">
+                                <div>
+                                    <input type="checkbox" id="next-js">
+                                    <label for="next-js">Next Js</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="typescript">
+                                    <label for="typescript">Typescript</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-upload-image">
+                        <label>Upload Image</label>
+                        <div class="input-blog-image">
+                            <label for="input-blog-image">
+                                <p>choose</p>
+                                <img src="../image/icon/attach_icon.svg">
+                            </label>
+                            <input type="file" id="input-blog-image" hidden>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-button-submit">
+                        <button>submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Blog Upload -->
+    <div class="blog-upload">
+        <div class="blog-container">
+            <!-- Dynamic Content -->
+            <div class="blog-list-item">
+                <img class="blog-image" src="../image/phone.jpg">
+                <h3 class="blog-title">Dumbways Mobile Apps</h3>
+                <p class="blog-duration">durasi: 3 bulan</p>
+                <p class="blog-content">testing aja kerana aku malas untuk copas bla ya.
+                    testing aja kerana aku malas untuk copas bla ya
+                    testing aja kerana aku malas untuk copas bla ya
+                    testing aja kerana aku malas untuk copas bla ya
+                    testing aja kerana aku malas untuk copas bla ya
+                    testing aja kerana aku malas untuk copas bla ya
+                </p>
+                <div class="blog-icon-technology">
+                    <img src="../image/icon/noje_js_icon.svg" alt="node-js">
+                    <img src="../image/icon/react_js_icon.svg" alt="node-js">
+                    <img src="../image/icon/next_js_icon.svg" alt="next-js">
+                    <img src="../image/icon/typescrip_icon.svg" alt="typescript">
+                </div>
+                <div class="blog-button">
+                    <button>edit</button>
+                    <button>delete</button>
+                </div>
+            </div>
+
+            <div class="blog-list-item">
+                <img class="blog-image" src="../image/phone.jpg">
+                <h3 class="blog-title">Dumbways Mobile Apps</h3>
+                <p class="blog-duration">durasi: 3 bulan</p>
+                <p class="blog-content">testing aja kerana aku malas untuk copas bla ya.
+                    testing aja kerana aku malas untuk copas bla ya
+                    testing aja kerana aku malas untuk copas bla ya
+                    testing aja kerana aku malas untuk copas bla ya
+                    testing aja kerana aku malas untuk copas bla ya
+                    testing aja kerana aku malas untuk copas bla ya
+                </p>
+                <div class="blog-icon-technology">
+                    <img src="../image/icon/noje_js_icon.svg" alt="node-js">
+                    <img src="../image/icon/react_js_icon.svg" alt="node-js">
+                    <img src="../image/icon/next_js_icon.svg" alt="next-js">
+                    <img src="../image/icon/typescrip_icon.svg" alt="typescript">
+                </div>
+                <div class="blog-button">
+                    <button>edit</button>
+                    <button>delete</button>
+                </div>
+            </div>
+
+            <div class="blog-list-item">
+                <img class="blog-image" src="../image/phone.jpg">
+                <h3 class="blog-title">Dumbways Mobile Apps</h3>
+                <p class="blog-duration">durasi: 3 bulan</p>
+                <p class="blog-content">testing aja kerana aku malas untuk copas bla ya.
+                    testing aja kerana aku malas untuk copas bla ya
+                    testing aja kerana aku malas untuk copas bla ya
+                    testing aja kerana aku malas untuk copas bla ya
+                    testing aja kerana aku malas untuk copas bla ya
+                    testing aja kerana aku malas untuk copas bla ya
+                </p>
+                <div class="blog-icon-technology">
+                    <img src="../image/icon/noje_js_icon.svg" alt="node-js">
+                    <img src="../image/icon/react_js_icon.svg" alt="node-js">
+                    <img src="../image/icon/next_js_icon.svg" alt="next-js">
+                    <img src="../image/icon/typescrip_icon.svg" alt="typescript">
+                </div>
+                <div class="blog-button">
+                    <button>edit</button>
+                    <button>delete</button>
+                </div>
+            </div>
+
+            <div class="blog-list-item">
+                <img class="blog-image" src="../image/phone.jpg">
+                <h3 class="blog-title">Dumbways Mobile Apps</h3>
+                <p class="blog-duration">durasi: 3 bulan</p>
+                <p class="blog-content">testing aja kerana aku malas untuk copas bla ya.
+                    testing aja kerana aku malas untuk copas bla ya
+                    testing aja kerana aku malas untuk copas bla ya
+                    testing aja kerana aku malas untuk copas bla ya
+                    testing aja kerana aku malas untuk copas bla ya
+                    testing aja kerana aku malas untuk copas bla ya
+                </p>
+                <div class="blog-icon-technology">
+                    <img src="../image/icon/noje_js_icon.svg" alt="node-js">
+                    <img src="../image/icon/react_js_icon.svg" alt="node-js">
+                    <img src="../image/icon/next_js_icon.svg" alt="next-js">
+                    <img src="../image/icon/typescrip_icon.svg" alt="typescript">
+                </div>
+                <div class="blog-button">
+                    <button>edit</button>
+                    <button>delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
