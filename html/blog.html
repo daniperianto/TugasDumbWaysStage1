@@ -12,8 +12,8 @@
         <div class="nav-left">
             <ul>
                 <li> <img src="../image/logo.png" alt="logo"> </li>
-                <li> <a class="active" href="../index.html">Home</a> </li>
-                <li> <a href="#">My Project</a> </li>
+                <li> <a href="../index.html">Home</a> </li>
+                <li> <a class="active" href="../html/blog.html">My Project</a> </li>
             </ul>
         </div>
         <div class="nav-right">
@@ -26,7 +26,7 @@
     <div class="blog">
         <div class="blog-form">
             <div class="blog-form-container">
-                <form>
+                <form onsubmit="addBlog(event)">
                     <h1>ADD MY PROJECT</h1>
                     
                     <div class="blog-project-name">
@@ -98,24 +98,31 @@
     
     <!-- Blog Upload -->
     <div class="blog-upload">
-        <div class="blog-container">
+        <div id="blog-content" class="blog-container">
             <!-- Dynamic Content -->
             <div class="blog-list-item">
-                <img class="blog-image" src="../image/phone.jpg">
-                <h3 class="blog-title">Dumbways Mobile Apps</h3>
+                <div class="blog-image-container">
+                    <img class="blog-image" src="../image/phone.jpg">
+                </div>
+                <a href="../html/blog-details.html">
+                    <h3 class="blog-title">Dumbways Mobile Apps</h3>
+                </a>
                 <p class="blog-duration">durasi: 3 bulan</p>
-                <p class="blog-content">testing aja kerana aku malas untuk copas bla ya.
-                    testing aja kerana aku malas untuk copas bla ya
-                    testing aja kerana aku malas untuk copas bla ya
-                    testing aja kerana aku malas untuk copas bla ya
-                    testing aja kerana aku malas untuk copas bla ya
-                    testing aja kerana aku malas untuk copas bla ya
-                </p>
+                <div class="blog-content">
+                    <p id="blog-content">
+                        Integer fringilla ipsum quis justo congue semper. 
+                        Aliquam fringilla dui neque, vitae sollicitudin mi dignissim et. 
+                        Sed id dui dui. Maecenas vitae elit felis. Etiam nec elit a orci aliquet dapibus. 
+                        Donec efficitur hendrerit ornare. Suspendisse accumsan eu lectus vel lobortis. 
+                        Suspendisse a accumsan felis, vitae pulvinar felis. 
+                    </p>
+                </div>
+                <script src="../js/read-more.js"></script>
                 <div class="blog-icon-technology">
-                    <img src="../image/icon/noje_js_icon.svg" alt="node-js">
+                    <img src="../image/icon/node_js_icon.svg" alt="node-js">
                     <img src="../image/icon/react_js_icon.svg" alt="node-js">
                     <img src="../image/icon/next_js_icon.svg" alt="next-js">
-                    <img src="../image/icon/typescrip_icon.svg" alt="typescript">
+                    <img src="../image/icon/typescript_icon.svg" alt="typescript">
                 </div>
                 <div class="blog-button">
                     <button>edit</button>
@@ -124,21 +131,27 @@
             </div>
 
             <div class="blog-list-item">
-                <img class="blog-image" src="../image/phone.jpg">
-                <h3 class="blog-title">Dumbways Mobile Apps</h3>
+                <div class="blog-image-container">
+                    <img class="blog-image" src="../image/phone.jpg">
+                </div>
+                <a href="../html/blog-details.html">
+                    <h3 class="blog-title">Dumbways Mobile Apps</h3>
+                </a>
                 <p class="blog-duration">durasi: 3 bulan</p>
-                <p class="blog-content">testing aja kerana aku malas untuk copas bla ya.
-                    testing aja kerana aku malas untuk copas bla ya
-                    testing aja kerana aku malas untuk copas bla ya
-                    testing aja kerana aku malas untuk copas bla ya
-                    testing aja kerana aku malas untuk copas bla ya
-                    testing aja kerana aku malas untuk copas bla ya
-                </p>
+                <div class="blog-content">
+                    <p id="blog-content">
+                        Integer fringilla ipsum quis justo congue semper. 
+                        Aliquam fringilla dui neque, vitae sollicitudin mi dignissim et. 
+                        Sed id dui dui. Maecenas vitae elit felis. Etiam nec elit a orci aliquet dapibus. 
+                        Donec efficitur hendrerit ornare. Suspendisse accumsan eu lectus vel lobortis. 
+                        Suspendisse a accumsan felis, vitae pulvinar felis. 
+                    </p>
+                </div>
                 <div class="blog-icon-technology">
-                    <img src="../image/icon/noje_js_icon.svg" alt="node-js">
+                    <img src="../image/icon/node_js_icon.svg" alt="node-js">
                     <img src="../image/icon/react_js_icon.svg" alt="node-js">
                     <img src="../image/icon/next_js_icon.svg" alt="next-js">
-                    <img src="../image/icon/typescrip_icon.svg" alt="typescript">
+                    <img src="../image/icon/typescript_icon.svg" alt="typescript">
                 </div>
                 <div class="blog-button">
                     <button>edit</button>
@@ -147,21 +160,27 @@
             </div>
 
             <div class="blog-list-item">
-                <img class="blog-image" src="../image/phone.jpg">
-                <h3 class="blog-title">Dumbways Mobile Apps</h3>
+                <div class="blog-image-container">
+                    <img class="blog-image" src="../image/phone.jpg">
+                </div>
+                <a href="../html/blog-details.html">
+                    <h3 class="blog-title">Dumbways Mobile Apps</h3>
+                </a>
                 <p class="blog-duration">durasi: 3 bulan</p>
-                <p class="blog-content">testing aja kerana aku malas untuk copas bla ya.
-                    testing aja kerana aku malas untuk copas bla ya
-                    testing aja kerana aku malas untuk copas bla ya
-                    testing aja kerana aku malas untuk copas bla ya
-                    testing aja kerana aku malas untuk copas bla ya
-                    testing aja kerana aku malas untuk copas bla ya
-                </p>
+                <div class="blog-content">
+                    <p id="blog-content">
+                        Integer fringilla ipsum quis justo congue semper. 
+                        Aliquam fringilla dui neque, vitae sollicitudin mi dignissim et. 
+                        Sed id dui dui. Maecenas vitae elit felis. Etiam nec elit a orci aliquet dapibus. 
+                        Donec efficitur hendrerit ornare. Suspendisse accumsan eu lectus vel lobortis. 
+                        Suspendisse a accumsan felis, vitae pulvinar felis. 
+                    </p>
+                </div>
                 <div class="blog-icon-technology">
-                    <img src="../image/icon/noje_js_icon.svg" alt="node-js">
+                    <img src="../image/icon/node_js_icon.svg" alt="node-js">
                     <img src="../image/icon/react_js_icon.svg" alt="node-js">
                     <img src="../image/icon/next_js_icon.svg" alt="next-js">
-                    <img src="../image/icon/typescrip_icon.svg" alt="typescript">
+                    <img src="../image/icon/typescript_icon.svg" alt="typescript">
                 </div>
                 <div class="blog-button">
                     <button>edit</button>
@@ -170,21 +189,27 @@
             </div>
 
             <div class="blog-list-item">
-                <img class="blog-image" src="../image/phone.jpg">
-                <h3 class="blog-title">Dumbways Mobile Apps</h3>
+                <div class="blog-image-container">
+                    <img class="blog-image" src="../image/phone.jpg">
+                </div>
+                <a href="../html/blog-details.html">
+                    <h3 class="blog-title">Dumbways Mobile Apps</h3>
+                </a>
                 <p class="blog-duration">durasi: 3 bulan</p>
-                <p class="blog-content">testing aja kerana aku malas untuk copas bla ya.
-                    testing aja kerana aku malas untuk copas bla ya
-                    testing aja kerana aku malas untuk copas bla ya
-                    testing aja kerana aku malas untuk copas bla ya
-                    testing aja kerana aku malas untuk copas bla ya
-                    testing aja kerana aku malas untuk copas bla ya
-                </p>
+                <div class="blog-content">
+                    <p id="blog-content">
+                        Integer fringilla ipsum quis justo congue semper. 
+                        Aliquam fringilla dui neque, vitae sollicitudin mi dignissim et. 
+                        Sed id dui dui. Maecenas vitae elit felis. Etiam nec elit a orci aliquet dapibus. 
+                        Donec efficitur hendrerit ornare. Suspendisse accumsan eu lectus vel lobortis. 
+                        Suspendisse a accumsan felis, vitae pulvinar felis. 
+                    </p>
+                </div>
                 <div class="blog-icon-technology">
-                    <img src="../image/icon/noje_js_icon.svg" alt="node-js">
+                    <img src="../image/icon/node_js_icon.svg" alt="node-js">
                     <img src="../image/icon/react_js_icon.svg" alt="node-js">
                     <img src="../image/icon/next_js_icon.svg" alt="next-js">
-                    <img src="../image/icon/typescrip_icon.svg" alt="typescript">
+                    <img src="../image/icon/typescript_icon.svg" alt="typescript">
                 </div>
                 <div class="blog-button">
                     <button>edit</button>
@@ -193,5 +218,7 @@
             </div>
         </div>
     </div>
+
+    <script src="../js/blog.js"></script>
 </body>
 </html>
