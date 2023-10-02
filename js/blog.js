@@ -158,6 +158,8 @@ function addReadMore(blogContent) {
     }
 
     blogContent += "</p>"
+    
+    console.log(blogContent)
     return blogContent;
 }
 
@@ -170,6 +172,7 @@ function renderBlogContent(blogContent) {
         blogContent += splitParagraphIntoLineAfterACertainLength(paragraph);
     }
 
+
     return addReadMore(blogContent);
 }
 
@@ -181,6 +184,8 @@ function splitParagraphIntoLineAfterACertainLength(paragraph) {
     let line = "";
 
     for(let i=0; i<wordArray.length; i++) {
+
+
         if( (line.length + wordArray[i].length) < maxAlphabetEachLine) {
             line += wordArray[i] + " ";
         } else {
