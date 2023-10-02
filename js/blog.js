@@ -137,37 +137,41 @@ function getDurationInMonthToString(days) {
     return `durasi: ${monthDuration} bulan`;
 }
 
+
 // Add read more in longer content 
 function addReadMore(blogContent) {
-    let maxLine = 7;
-    blogContent = blogContent.substring(0,340);
+    let blogOverflow = false;
+
+    if (blogContent.length > 300) {
+        blogContent = blogContent.substring(0,300);
+        blogOverflow = true;
+    }
+
+    let maxLine = 8;
     let contentArray = blogContent.split("\n");
+    if (contentArray.length > 8) {
+        contentArray = contentArray.slice(0,8);
+        blogOverflow = true
+    }
+    
     blogContent = "<p>"
-
-    let totalChar = 0;
     for(let i=0; i<contentArray.length; i++) {
-        if(i > maxLine || totalChar >= 330) {
-            blogContent += `...<a href="../html/blog-details.html" style="color: blue;" target="_blank">Read more</a>`;
-            break;
-        }
-
         if (contentArray[i] == " ") {
             blogContent += `<br>\n`
         } else {
             blogContent += contentArray[i];
-            totalChar += contentArray[i].length;
-            if ( totalChar >= 330) {
-                blogContent += `...<a href="../html/blog-details.html" style="color: blue;" target="_blank">Read more</a>`;
-                break;
-            }
         }
-
     }
 
+    if (blogOverflow) {
+        blogContent += `...<a href="../html/blog-details.html" style="color: blue;" target="_blank">Read more</a>`;
+    }
     blogContent += "</p>"
+
 
     return blogContent;
 }
+
 
 // Split blog content to new paragraph base of \n(new line)
 function renderBlogContent(blogContent) {
@@ -178,13 +182,12 @@ function renderBlogContent(blogContent) {
         blogContent += splitParagraphIntoLineAfterACertainLength(paragraph);
     }
 
-
     return addReadMore(blogContent);
 }
 
 
 function splitParagraphIntoLineAfterACertainLength(paragraph) {
-    let maxAlphabetEachLine = 42;
+    let maxAlphabetEachLine = 33;
     let wordArray = paragraph.split(" ");
     let paragraphResult = "";
     let line = "";
