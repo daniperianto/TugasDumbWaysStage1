@@ -140,11 +140,13 @@ function getDurationInMonthToString(days) {
 // Add read more in longer content 
 function addReadMore(blogContent) {
     let maxLine = 7;
+    blogContent = blogContent.substring(0,340);
     let contentArray = blogContent.split("\n");
     blogContent = "<p>"
 
+    let totalChar = 0;
     for(let i=0; i<contentArray.length; i++) {
-        if(i > maxLine) {
+        if(i > maxLine || totalChar >= 330) {
             blogContent += `...<a href="../html/blog-details.html" style="color: blue;" target="_blank">Read more</a>`;
             break;
         }
@@ -153,13 +155,17 @@ function addReadMore(blogContent) {
             blogContent += `<br>\n`
         } else {
             blogContent += contentArray[i];
+            totalChar += contentArray[i].length;
+            if ( totalChar >= 330) {
+                blogContent += `...<a href="../html/blog-details.html" style="color: blue;" target="_blank">Read more</a>`;
+                break;
+            }
         }
 
     }
 
     blogContent += "</p>"
-    
-    console.log(blogContent)
+
     return blogContent;
 }
 
