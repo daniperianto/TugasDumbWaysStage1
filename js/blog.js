@@ -139,7 +139,7 @@ function getDurationInMonthToString(days) {
 
 
 // Add read more in longer content 
-function addReadMore(blogContent) {
+function renderBlogContent(blogContent) {
     let blogOverflow = false;
 
     if (blogContent.length > 300) {
@@ -149,6 +149,8 @@ function addReadMore(blogContent) {
 
     let maxLine = 8;
     let contentArray = blogContent.split("\n");
+    
+
     if (contentArray.length > 8) {
         contentArray = contentArray.slice(0,8);
         blogOverflow = true
@@ -156,8 +158,8 @@ function addReadMore(blogContent) {
     
     blogContent = "<p>"
     for(let i=0; i<contentArray.length; i++) {
-        if (contentArray[i] == " ") {
-            blogContent += `<br>\n`
+        if (contentArray[i].length < 25) {
+            blogContent += `${contentArray[i]}<br>\n`
         } else {
             blogContent += contentArray[i];
         }
@@ -173,41 +175,4 @@ function addReadMore(blogContent) {
 }
 
 
-// Split blog content to new paragraph base of \n(new line)
-function renderBlogContent(blogContent) {
-    let paragraphArray = blogContent.split("\n");
-    blogContent = "";
-
-    for (const paragraph of paragraphArray) {
-        blogContent += splitParagraphIntoLineAfterACertainLength(paragraph);
-    }
-
-    return addReadMore(blogContent);
-}
-
-
-function splitParagraphIntoLineAfterACertainLength(paragraph) {
-    let maxAlphabetEachLine = 33;
-    let wordArray = paragraph.split(" ");
-    let paragraphResult = "";
-    let line = "";
-
-    for(let i=0; i<wordArray.length; i++) {
-
-
-        if( (line.length + wordArray[i].length) < maxAlphabetEachLine) {
-            line += wordArray[i] + " ";
-        } else {
-            paragraphResult += `${line}\n`;
-            line = wordArray[i];
-        }
-
-        // Last word.
-        if(i == (wordArray.length - 1)) { 
-            paragraphResult += `${line}\n`;
-        }
-    }
-
-    return paragraphResult;
-}
 
