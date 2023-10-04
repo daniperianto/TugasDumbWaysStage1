@@ -1,3 +1,5 @@
+
+
 let dataBlog = [];
 
 function addBlog(event) {
@@ -140,39 +142,64 @@ function getDurationInMonthToString(days) {
 
 // Add read more in longer content 
 function renderBlogContent(blogContent) {
-    let blogOverflow = false;
+    const maxChar = 300;
+    const maxLine = 8
+    const blogOverflow = isOverflow(blogContent, maxLine, maxChar)
+    blogContentCut = cutBlogContent(blogContent, maxLine, maxChar);
+    const contentArray = blogContentCut.split("\n");
 
-    if (blogContent.length > 300) {
-        blogContent = blogContent.substring(0,300);
-        blogOverflow = true;
-    }
-
-    let maxLine = 8;
-    let contentArray = blogContent.split("\n");
     
-
-    if (contentArray.length > 8) {
-        contentArray = contentArray.slice(0,8);
-        blogOverflow = true
-    }
-    
-    blogContent = "<p>"
-    for(let i=0; i<contentArray.length; i++) {
-        if (contentArray[i].length < 25) {
-            blogContent += `${contentArray[i]}<br>\n`
+    blogContentDisplayed = "<p>"
+    for (let i=0; i<contentArray.length; i++) {
+        if (i == contentArray.length - 1) { // last index
+            blogContentDisplayed += `${contentArray[i]}\n`
         } else {
-            blogContent += contentArray[i];
+            blogContentDisplayed += `${contentArray[i]}<br>\n`
         }
     }
 
     if (blogOverflow) {
-        blogContent += `...<a href="../html/blog-details.html" style="color: blue;" target="_blank">Read more</a>`;
+        blogContentDisplayed += ` . . . <a href="../html/blog-details.html" style="color: blue;" target="_blank">Read more</a>`;
     }
-    blogContent += "</p>"
+    blogContentDisplayed += "</p>"
 
+
+    return blogContentDisplayed;
+}
+
+
+function cutBlogContent(blogContent, maxLine, maxChar) {
+    const blogLineArray = blogContent.split("\n");
+    const maxCharPerLine = maxChar / maxLine;
+
+    blogContent = "";
+    let lineContent = 0;
+    outer:
+    for(const blogLine of blogLineArray) {
+        const totalLineBlogLine = Math.ceil(blogLine.length / maxCharPerLine);
+        if (lineContent + totalLineBlogLine < maxLine) {
+            blogContent += blogLine + "\n";
+            lineContent += totalLineBlogLine;
+        } else {
+            const blogLineUsedLine = maxLine - lineContent;
+            blogContent += blogLine.substring(0,blogLineUsedLine*maxCharPerLine);
+            break outer;
+        }
+    }
 
     return blogContent;
 }
 
+function isOverflow(blogContent, maxLine, maxChar) {
+    const contentArray = blogContent.split("\n")
+    let totalChar = 0;
+    for (const content of contentArray) {
+        if (content.length < 33) {
+            totalChar += maxChar/maxLine;
+        } else {
+            totalChar += content.length
+        }
+    }
 
-
+    return totalChar > maxChar;
+}
