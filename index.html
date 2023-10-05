@@ -13,16 +13,29 @@
         <div class="nav-left">
             <ul>
                 <li> <img src="image/logo.png" alt="logo"> </li>
-                <li> <a class="active" href="index.html">Home</a> </li>
-                <li> <a href="/html/blog.html">My Project</a> </li>
+                <li class="item-collapse"> <a class="active" href="index.html">Home</a> </li>
+                <li class="item-collapse"> <a href="/html/blog.html">My Project</a> </li>
             </ul>
         </div>
-        <div class="nav-right">
+        <div class="nav-right item-collapse">
             <a href="/html/contact.html">Contact Me</a>
+        </div>
+        <div class="nav-right" id="bars-menu">
+            <button style="background-color: transparent; border: none; cursor: pointer;"
+                onclick="openHamburger()">
+                <i class="fa-2x fa-solid fa-bars"></i>
+            </button>
         </div>
     </nav>
 
+    <div class="hamburger-nav-container" id="hamburger-nav-container">
+        <a href="index.html" class="hamburger-active">Home</a>
+        <a href="/html/blog.html">My Project</a>
+        <a href="/html/contact.html"><p class="contact-me">Contact Me</p></a>
+    </div>
 
+
+    <!-- Main Content -->
     <div class="main-container">
         <div class="container-left">
             <h1>Hi Welcome to my hut</h1>
@@ -52,5 +65,7 @@
             <p class="course">Fullstack Developer</p>
         </div>
     </div>
+
+    <script src="/js/index.js"></script>
 </body>
 </html>

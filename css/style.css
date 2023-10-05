@@ -60,6 +60,48 @@ nav ul li a:hover {
     font-weight: bold;
 }
 
+#bars-menu {
+    display: none;
+}
+
+.hamburger-nav-container {
+    font-size: 20px;
+    list-style-type: none;
+    display: none;
+}
+
+.hamburger-nav-container a {
+    text-decoration: none;
+    color: black;
+    background-color: #cdc9c9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: none;
+}
+
+.hamburger-nav-container a:hover {
+    color: orangered;
+}
+
+.hamburger-nav-container .hamburger-active {
+    font-weight: bold;
+}
+
+.hamburger-nav-container .contact-me {
+    background-color: black;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 5px;
+    margin: 0;
+    font-size: 18px;
+}
+
+.hamburger-nav-container .contact-me:hover {
+    background-color: orangered;
+}
+
 /* End of NavBar */
 
 .main-container {
@@ -144,6 +186,69 @@ nav ul li a:hover {
     text-align: center;
     margin: 0px 0px 20px 0px;
 }
+
+@media only screen and (max-width: 600px) {
+    .item-collapse {
+        display: none;
+    }
+
+    #bars-menu {
+        display: block;
+    }
+
+    .main-container {
+        padding: 20px auto;
+    }
+
+    .nav-right {
+        margin-right: 20px;
+    }
+
+    .contact {
+        margin-bottom: 20px;
+    }
+
+    .social-media {
+        width: 100%;
+        margin-top: 35px;
+        margin-bottom: 0px;
+    }
+
+
+    .social-media i {
+        font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+
+    .main-container {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px auto;
+    }
+
+    .container-left {
+        padding: 20px 50px;
+    }
+
+    .social-media {
+        text-align: center;
+    }
+
+    .social-media i {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .id-card {
+        width: 65%;
+    }
+}
+
+
 
 
 

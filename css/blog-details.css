@@ -50,7 +50,6 @@ nav ul li a:hover {
     color: white;
     padding: 8px 22px;
     border-radius: 5px;
-    border: none;
 }
 
 .nav-right a:hover {
@@ -61,7 +60,50 @@ nav ul li a:hover {
     font-weight: bold;
 }
 
-/* End of NavBar */
+#bars-menu {
+    display: none;
+}
+
+.hamburger-nav-container {
+    font-size: 20px;
+    list-style-type: none;
+    display: none;
+}
+
+.hamburger-nav-container a {
+    text-decoration: none;
+    color: black;
+    background-color: #cdc9c9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: none;
+}
+
+.hamburger-nav-container a:hover {
+    color: orangered;
+}
+
+.hamburger-nav-container .hamburger-active {
+    font-weight: bold;
+}
+
+.hamburger-nav-container .contact-me {
+    background-color: black;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 5px;
+    margin: 0;
+    font-size: 18px;
+}
+
+.hamburger-nav-container .contact-me:hover {
+    background-color: orangered;
+}
+
+
+/* End Of NavBar */
 
 /* Blog Details */
 .blog-details {
@@ -137,4 +179,36 @@ nav ul li a:hover {
     font-size: 17px;
     font-weight: 500;
     text-align: justify;
+}
+
+@media only screen and (max-width: 900px) {
+    .blog-details-containers .blog-information {
+        display: block;
+    }
+
+    .blog-information .blog-picture {
+        margin: 20px 0px;
+    }
+
+    .blog-duration-and-technology .blog-technology {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .item-collapse {
+        display: none;
+    }
+
+    #bars-menu {
+        display: block;
+    }
+
+    .nav-right {
+        margin-right: 20px;
+    }
+    
+    .blog-duration-and-technology .blog-technology {
+        display: block;
+    }
 }

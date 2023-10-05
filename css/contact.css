@@ -56,6 +56,48 @@ nav ul li a:hover {
     background-color: orangered;
 }
 
+#bars-menu {
+    display: none;
+}
+
+.hamburger-nav-container {
+    font-size: 20px;
+    list-style-type: none;
+    display: none;
+}
+
+.hamburger-nav-container a {
+    text-decoration: none;
+    color: black;
+    background-color: #cdc9c9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: none;
+}
+
+.hamburger-nav-container a:hover {
+    color: orangered;
+}
+
+.hamburger-nav-container .hamburger-active {
+    font-weight: bold;
+}
+
+.hamburger-nav-container .contact-me {
+    background-color: black;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 5px;
+    margin: 0;
+    font-size: 18px;
+}
+
+.hamburger-nav-container .contact-me:hover {
+    background-color: orangered;
+}
+
 
 /* End Of NavBar */
 
@@ -106,7 +148,7 @@ input, textarea {
     width: calc(100% - 21px);
 }
 
-button {
+.submit {
     background-color: black;
     color: white;
     padding: 6px 32px;
@@ -121,4 +163,23 @@ button {
 
 button:hover {
     transform: scale(1.1) ;
+}
+
+@media only screen and (max-width: 600px) {
+    .item-collapse {
+        display: none;
+    }
+
+    #bars-menu {
+        display: block;
+    }
+
+    .nav-right {
+        margin-right: 20px;
+    }
+
+    form {
+        width: 90%;
+    }
+
 }
