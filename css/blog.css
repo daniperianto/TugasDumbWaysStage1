@@ -373,6 +373,10 @@ nav ul li a:hover {
         margin-right: 20px;
     }
 
+    .checkbox-container {
+        display: block;
+    }
+
     .blog-form .blog-form-container {
         width: 90%;
     }
@@ -386,14 +390,15 @@ nav ul li a:hover {
     }
 
     .blog-container {
-        display: grid;
-        grid-template-columns: 330px ;
-        padding: 30px auto;
-        gap: auto;
+        display: block;
+        padding: 10px ;
+        justify-content: center;
+        align-items: center;
     }
 
     .blog-list-item {
         width: 90%;
+        margin: 20px auto;
     }
 
     .blog-list-item .blog-image {
