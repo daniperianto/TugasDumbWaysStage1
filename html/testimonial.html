@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/testimonial.css">
+    <title>Testimonial</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-left">
+            <ul>
+                <li> <img src="../image/logo.png" alt="logo"> </li>
+                <li class="item-collapse"> <a href="../index.html">Home</a> </li>
+                <li class="item-collapse"> <a href="../html/blog.html">My Project</a> </li>
+                <li class="item-collapse"> <a class="active" href="../html/testimonial.html">Testimonial</a></li>
+            </ul>
+        </div>
+        <div class="nav-right item-collapse">
+            <a href="../html/contact.html">Contact Me</a>
+        </div>
+        <div class="nav-right" id="bars-menu">
+            <button style="background-color: transparent; border: none; cursor: pointer;"
+                onclick="openHamburger()">
+                <i class="fa-2x fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="hamburger-nav-container" id="hamburger-nav-container">
+        <a href="../index.html" class="hamburger-active">Home</a>
+        <a href="../html/blog.html">My Project</a>
+        <a href="../html/testimonial.html">Testimonials</a>
+        <a href="../html/contact.html"><p class="contact-me">Contact Me</p></a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>My Testimonial</h1>
+        <div class="container-rating">
+            <h2>Rating By Star</h2>
+            <div class="rating">
+                <button class="rating-button" onclick="allTestimonial()">All</button>
+                <button class="rating-button" onclick="filterTestimonial(1)">
+                    1 <i class="fa-solid fa-star"></i></button>
+                <button class="rating-button" onclick="filterTestimonial(2)">
+                    2 <i class="fa-solid fa-star"></i></button>
+                <button class="rating-button" onclick="filterTestimonial(3)">
+                    3 <i class="fa-solid fa-star"></i></button>
+                <button class="rating-button" onclick="filterTestimonial(4)">
+                    4 <i class="fa-solid fa-star"></i></button>
+                <button class="rating-button" onclick="filterTestimonial(5)">
+                    5 <i class="fa-solid fa-star"></i></button>
+            </div>
+        </div>
+
+        <section class="testimonials" id="testimonials">
+            <div class="testimonial">
+                <img class="profile-testimonial"
+                    src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                    alt="profile"/>
+                <p class="quote">Memuaskan!</p>
+                <p class="author">Jack Smith</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="../js/index.js"></script>
+    <script src="../js/testimonial.js"></script>
+</body>
+</html>
