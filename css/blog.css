@@ -405,8 +405,10 @@ nav ul li a:hover {
     .blog-list-item .blog-image {
         height: 170px;
     }
+}
 
-@media only screen and (max-width: 900px) and (min-width: 601px) {
+@media only screen and (max-width: 900px) and (min-width: 600px) {
+
     .blog-container {
         display: grid;
         grid-template-columns: 330px 330px;
