@@ -29,6 +29,7 @@ nav ul {
 nav ul li {
     margin-right: 30px;
     font-size: 20px;
+    white-space: nowrap;
 }
 
 nav ul li a:hover {
@@ -42,7 +43,7 @@ nav ul li a:hover {
 .nav-right {
     flex: 50%;
     text-align: end;
-    margin-right: 60px;
+    margin-right: 40px;
 }
 
 .nav-right a {
