@@ -1,25 +1,27 @@
-const testimonialData = [
-    {
-        author: "Jack Smith",
-        quote: "Memuaskan!",
-        image:"https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-        rating: 5,
-    },
-    {
-        author: "Samantha",
-        quote: "Bisa lebih rapih lagi!",
-        image:"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-        rating: 4,
-    },
-    {
-        author: "William Higgins",
-        quote: "Pengen coba lagi!",
-        image:"https://images.unsplash.com/photo-1624561172888-ac93c696e10c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1889&q=80",
-        rating: 5,
-    },
-];
+const testimonial = new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
 
-function allTestimonial() {
+    xhr.open("GET", "https://api.npoint.io/5a0d19a2203963191462", true);
+
+    xhr.onload = function () {
+        if(xhr.status == 200) {
+            resolve(JSON.parse(xhr.response));
+        } else {
+            reject("Error Loading Data");
+        }
+    }
+
+    xhr.onerror = function () {
+        reject("Network error");
+    }
+
+    xhr.send();
+});
+
+
+
+async function allTestimonial() {
+    const testimonialData = await testimonial;
     let testimonialHTML = "";
 
     testimonialData.forEach(function (item) {
@@ -41,7 +43,8 @@ function allTestimonial() {
 
 allTestimonial();
 
-function filterTestimonial(rating) {
+async function filterTestimonial(rating) {
+    const testimonialData = await testimonial;
     let testimonialHTML = "";
 
     const testimonialFiltered = testimonialData.filter(function (item) {
