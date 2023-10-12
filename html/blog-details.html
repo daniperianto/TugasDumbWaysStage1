@@ -4,68 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/blog-details.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+        crossorigin="anonymous">
     <title>Blog Details</title>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="nav-left">
-            <ul>
-                <li> <img src="../image/logo.png" alt="logo"> </li>
-                <li class="item-collapse"> <a href="../index.html">Home</a> </li>
-                <li class="item-collapse"> <a class="active" href="../html/blog.html">My Project</a> </li>
-                <li class="item-collapse"> <a href="../html/testimonial.html">Testimonial</a></li>
-            </ul>
-        </div>
-        <div class="nav-right item-collapse">
-            <a href="../html/contact.html">Contact Me</a>
-        </div>
-        <div class="nav-right" id="bars-menu">
-            <button style="background-color: transparent; border: none; cursor: pointer;"
-                onclick="openHamburger()">
-                <i class="fa-2x fa-solid fa-bars"></i>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html"><img class="ms-4" src="../image/logo.png" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link text-black mx-2 fs-5" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-black mx-2 fs-5 fw-bold" href="../html/blog.html">Add Project</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-black mx-2 fs-5" href="../html/testimonial.html">Testimonial</a>
+                </li>
+                </ul>
+                <div class="me-5 align-self-center">
+                    <a class="nav-link bg-black px-3 py-2 rounded-3 text-white" href="../html/contact.html">Contact Me</a>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <div class="hamburger-nav-container" id="hamburger-nav-container">
-        <a href="../index.html">Home</a>
-        <a class="active" href="../html/blog.html">My Project</a>
-        <a href="../html/testimonial.html">Testimonial</a>
-        <a href="../html/contact.html"><p class="contact-me">Contact Me</p></a>
-    </div>
-
 
     <!-- Blog Details -->
-    <div class="blog-details" id="blog-details">
+    <div class="d-flex justify-content-center" id="blog-details">
         <!-- dynamic content -->
-        <div class="blog-details-containers">
-            <h1 class="blog-title">Dumbways Web App</h1>
+        <div class="mt-5 mx-4 blog-details-containers">
+            <h1 class="text-center fw-semibold fs-1 mb-4">Dumbways Web App</h1>
 
-            <div class="blog-information">
-                <div class="blog-picture">
-                    <img src="../image/phone.jpg" alt="blog-picture">
+            <div class="d-flex flex-column flex-md-row blog-information">
+                <div class="w-100 me-5 blog-picture">
+                    <img class="w-100" src="../image/phone.jpg" alt="blog-picture">
                 </div>
 
-                <div class="blog-duration-and-technology">
-                    <h2>Duration</h2>
-                    <div class="blog-duration">
-                        <p><img src="../image/icon/calendar_icon.svg">1 Jan 2023 - 2 Mar 2023</p>
-                        <p><img src="../image/icon/clock_icon.svg">3 bulan</p>
+                <div class="pe-5">
+                    <h2 class="fw-semibold fs-3 mb-0">Duration</h2>
+                    <div>
+                        <p class="fs-5 fw-semibold text-secondary m-0 text-nowrap">
+                            <img class="icon mt-2" src="../image/icon/calendar_icon.svg">1 Jan 2023 - 2 Mar 2023</p>
+                        <p class="fs-5 fw-semibold text-secondary m-0">
+                            <img class="icon mt-2" src="../image/icon/clock_icon.svg">3 bulan</p>
                     </div>
 
-                    <h2>Technologies</h2>
+                    <h2 class="fw-semibold fs-3 mt-4 mb-0">Technologies</h2>
                     <div class="blog-technology">
-                        <p><img src="../image/icon/react_js_icon.svg">React Js</p>
-                        <p><img src="../image/icon/next_js_icon.svg">Next Js</p>
-                        <p><img src="../image/icon/node_js_icon.svg">Node Js</p>
-                        <p><img src="../image/icon/typescript_icon.svg">Typescript</p>
+                        <p class="fs-5 fw-semibold text-secondary m-0">
+                            <img class="icon mt-2" src="../image/icon/react_js_icon.svg">React Js</p>
+                        <p class="fs-5 fw-semibold text-secondary m-0">
+                            <img class="icon mt-2" src="../image/icon/next_js_icon.svg">Next Js</p>
+                        <p class="fs-5 fw-semibold text-secondary m-0">
+                            <img class="icon mt-2" src="../image/icon/node_js_icon.svg">Node Js</p>
+                        <p class="fs-5 fw-semibold text-secondary m-0">
+                            <img class="icon mt-2" src="../image/icon/typescript_icon.svg">Typescript</p>
                     </div>
                 </div>
             </div>
 
-            <div class="blog-content">
+            <div class="mt-5">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                     In commodo nisl elementum, eleifend velit eget, aliquet purus. 
                     Orci varius natoque penatibus et magnis dis parturient montes, 
@@ -115,5 +125,8 @@
 
     <script src="../js/blog.js"></script>
     <script src="../js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+            crossorigin="anonymous"></script>
 </body>
 </html>

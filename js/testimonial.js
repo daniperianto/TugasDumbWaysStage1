@@ -26,14 +26,13 @@ async function allTestimonial() {
 
     testimonialData.forEach(function (item) {
         testimonialHTML += `
-            <div class="testimonial">
+            <div class="w-25 mx-3 mb-4 p-3 bg-white shadow-sm">
                 <img class="profile-testimonial"
                     src="${item.image}"
-                    alt="profile"
-                />
-                <p class="quote">${item.quote}</p>
-                <p class="author">- ${item.author}</p>
-                <p class="author">${item.rating} <i class="fa-solid fa-star"></i></p>
+                    alt="profile"/>
+                <p class="fst-italic my-3">"${item.quote}"</p>
+                <p class="text-end fw-bold">- ${item.author}</p>
+                <p class="text-end fw-bold">${item.rating} <i class="fa-solid fa-star"></i></p>
             </div>
             `;
     });
@@ -56,14 +55,13 @@ async function filterTestimonial(rating) {
     } else {
         testimonialFiltered.forEach(function (item) {
             testimonialHTML += `
-                <div class="testimonial">
+                <div class="w-25 mx-3 mb-4 p-3 bg-white shadow-sm">
                     <img class="profile-testimonial"
                         src="${item.image}"
-                        alt="profile"
-                    />
-                    <p class="quote">${item.quote}</p>
-                    <p class="author">- ${item.author}</p>
-                    <p class="author">${item.rating} <i class="fa-solid fa-star"></i></p>
+                        alt="profile"/>
+                    <p class="fst-italic my-3">"${item.quote}"</p>
+                    <p class="text-end fw-bold">- ${item.author}</p>
+                    <p class="text-end fw-bold">${item.rating} <i class="fa-solid fa-star"></i></p>
                 </div>
                 `;
         });

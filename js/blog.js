@@ -72,19 +72,17 @@ function renderBlog() {
 
         document.getElementById("blog-content").innerHTML += 
         `
-            <div class="blog-list-item">
-                <div class="blog-image-container">
-                    <img class="blog-image" src=${dataBlog[i].projectImage}>
-                </div>
-                <a href="../html/blog-details.html" target="_blank">
-                    <h3 class="blog-title">${dataBlog[i].projectName}</h3>
+            <div class="mb-4 mx-3 blog-list-item">
+                <img class="blog-image" src=${dataBlog[i].projectImage}>
+                <a class="mt-2 text-decoration-none" href="../html/blog-details.html" target="_blank">
+                    <h3 class="mb-0 text-black fw-semibold fs-4">${dataBlog[i].projectName}</h3>
                 </a>
-                <p class="blog-duration">${dataBlog[i].projectDuration}</p>
-                <div class="blog-content">${renderBlogContent(dataBlog[i].projectDescription)}</div>
-                <div class="blog-icon-technology">${renderTechnologyImages(dataBlog[i])}</div>
-                <div class="blog-button">
-                    <button>edit</button>
-                    <button>delete</button>
+                <p class="m-0 text-secondary">${dataBlog[i].projectDuration}</p>
+                <div class="my-2">${renderBlogContent(dataBlog[i].projectDescription)}</div>
+                <div class="d-flex flex-row mt-auto">${renderTechnologyImages(dataBlog[i])}</div>
+                <div class="d-flex flex-row mt-2">
+                    <button class="w-50 me-2 bg-black text-white fw-semibold rounded">edit</button>
+                    <button class="w-50 bg-black text-white fw-semibold rounded">delete</button>
                 </div>
             </div>
         `
@@ -95,16 +93,16 @@ function renderTechnologyImages(blogObject) {
     let renderImages = "";
 
     if (blogObject.isUsingNodeJs) {
-        renderImages += `<img src="../image/icon/node_js_icon.svg" alt="node-js">\n`;
+        renderImages += `<img class="icon" src="../image/icon/node_js_icon.svg" alt="node-js">\n`;
     }
     if (blogObject.isUsingReactJs) {
-        renderImages += `<img src="../image/icon/react_js_icon.svg" alt="node-js">\n`;
+        renderImages += `<img class="icon" src="../image/icon/react_js_icon.svg" alt="node-js">\n`;
     }
     if (blogObject.isUsingNextJs) {
-        renderImages += `<img src="../image/icon/next_js_icon.svg" alt="next-js">\n`;
+        renderImages += `<img class="icon" src="../image/icon/next_js_icon.svg" alt="next-js">\n`;
     }
     if (blogObject.isUsingTypescript) {
-        renderImages += `<img src="../image/icon/typescript_icon.svg" alt="typescript"></img>\n`;
+        renderImages += `<img class="icon" src="../image/icon/typescript_icon.svg" alt="typescript"></img>\n`;
     }
 
     return renderImages;
@@ -142,8 +140,8 @@ function getDurationInMonthToString(days) {
 
 // Add read more in longer content 
 function renderBlogContent(blogContent) {
-    const maxChar = 300;
-    const maxLine = 8
+    const maxChar = 270;
+    const maxLine = 7
     const blogOverflow = isOverflow(blogContent, maxLine, maxChar)
     blogContentCut = cutBlogContent(blogContent, maxLine, maxChar);
     const contentArray = blogContentCut.split("\n");
