@@ -74,7 +74,7 @@ function renderBlog() {
         `
             <div class="mb-4 mx-3 blog-list-item">
                 <img class="blog-image" src=${dataBlog[i].projectImage}>
-                <a class="mt-2 text-decoration-none" href="../html/blog-details.html" target="_blank">
+                <a class="mt-2 text-decoration-none" href="/blog-details" target="_blank">
                     <h3 class="mb-0 text-black fw-semibold fs-4">${dataBlog[i].projectName}</h3>
                 </a>
                 <p class="m-0 text-secondary">${dataBlog[i].projectDuration}</p>

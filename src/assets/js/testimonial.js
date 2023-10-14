@@ -1,7 +1,7 @@
 const testimonial = new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
 
-    xhr.open("GET", "https://api.npoint.io/5a0d19a2203963191462", true);
+    xhr.open("GET", "../json/testimonial.json", true);
 
     xhr.onload = function () {
         if(xhr.status == 200) {
@@ -26,7 +26,7 @@ async function allTestimonial() {
 
     testimonialData.forEach(function (item) {
         testimonialHTML += `
-            <div class="w-25 mx-3 mb-4 p-3 bg-white shadow-sm">
+            <div class="testimonial-card mx-3 mb-4 p-3 bg-white shadow-sm">
                 <img class="profile-testimonial"
                     src="${item.image}"
                     alt="profile"/>
@@ -55,7 +55,7 @@ async function filterTestimonial(rating) {
     } else {
         testimonialFiltered.forEach(function (item) {
             testimonialHTML += `
-                <div class="w-25 mx-3 mb-4 p-3 bg-white shadow-sm">
+                <div class="testimonial-card mx-3 mb-4 p-3 bg-white shadow-sm">
                     <img class="profile-testimonial"
                         src="${item.image}"
                         alt="profile"/>
