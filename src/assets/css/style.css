@@ -10,9 +10,10 @@ body {
     background-color: #ebeaea !important;
 }
 
-nav, .blog-upload {
+nav {
     background-color: #f7f7f7ec !important;
 }
+
 
 
 .download-icon {
@@ -37,8 +38,8 @@ nav, .blog-upload {
 }
 
 p {
-    text-align: justify;
-    word-wrap: break-word;
+    text-align: justify !important;
+    word-break: break-all;
 }
 
 
@@ -69,5 +70,10 @@ select {
     background-position-y: 50%;
     padding: 13px;
     appearance: none;
+}
+
+.image-details {
+    width: 100% !important;
+    height: 500px !important;
 }
 

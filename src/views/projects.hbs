@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+        crossorigin="anonymous">
+    <title>Project</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img class="ms-4" src="../image/logo.png" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link text-black mx-2 fs-5" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-black mx-2 fs-5 fw-bold" href="/projects">Project</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-black mx-2 fs-5" href="/testimonials">Testimonial</a>
+                </li>
+                </ul>
+                <div class="me-5 align-self-center">
+                    <a class="nav-link bg-black px-3 py-2 rounded-3 text-white" href="/contact">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+
+    <div class="d-flex justify-content-end m-4 pe-3">
+        <a class="btn btn-secondary rounded-3 text-decoration-none me-4" href="/add-project">Add Project</a>
+    </div>
+    
+
+    <!-- Blog Upload -->
+    <div class="container">
+        <div id="blog-content" class="d-flex flex-row flex-wrap pt-4 px-2 justify-content-center">
+            <!-- Dynamic Content -->
+            {{#each blogs}}
+            <div class="mb-4 mx-3 blog-list-item">
+                <img class="img-fluid" src="./image/phone.jpg">
+                <a class="mt-2 text-decoration-none" href="/project-details/{{@index}}">
+                    <h3 class="mb-0 text-black fw-semibold fs-4">{{this.title}}</h3>
+                </a>
+                <p class="m-0 text-secondary">durasi: {{this.duration}}</p>
+                <div class="my-2 flex-grow-1">
+                    {{#if this.blogOverflow}}
+                    <p class="blog-content" id="blog-content">
+                        {{#each this.shortDescriptionArray}}
+                        {{this}}{{#if @last}}{{else}}<br>{{/if}}
+                        {{/each}}
+                        ...<a href="/project-details/{{@index}}" style="color: blue;">Read more</a>
+                    </p>
+                    {{else}}
+                    <p class="blog-content" id="blog-content">
+                        {{#each this.shortDescriptionArray}}
+                        {{this}}{{#if @last}}{{else}}<br>{{/if}}
+                        {{/each}}</p>
+                    {{/if}}
+                </div>
+                <div class="d-flex flex-row mt-auto mb-3">
+                    {{#if this.node_js}}
+                    <img class="icon" src="./image/icon/node_js_icon.svg" alt="node-js">
+                    {{/if}}
+                    {{#if this.react_js}}
+                    <img class="icon" src="./image/icon/react_js_icon.svg" alt="react-js">
+                    {{/if}}
+                    {{#if this.next_js}}
+                    <img class="icon" src="./image/icon/next_js_icon.svg" alt="next-js">
+                    {{/if}}
+                    {{#if this.typescript}}
+                    <img class="icon" src="./image/icon/typescript_icon.svg" alt="typescript">
+                    {{/if}}
+                </div>
+                <div class="d-flex flex-row mt-auto">
+                    <a href="/edit-project/{{@index}}" 
+                        class="w-50 me-2 bg-black text-white fw-semibold rounded text-center text-decoration-none">edit</a>
+                    <a href="/delete-project/{{@index}}" 
+                        class="w-50 bg-black text-white fw-semibold rounded text-center text-decoration-none">delete</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+            crossorigin="anonymous"></script>
+</body>
+</html>

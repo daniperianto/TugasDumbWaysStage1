@@ -1,4 +1,8 @@
+const DataProject = require("./src/assets/js/data-project.js");
+const DataProjectRepository = require("./src/assets/js/data-project-repository.js");
+const alert = require("./src/assets/js/alert.js");
 const express = require("express");
+const repository = new DataProjectRepository();
 const path = require("path");
 const app = express();
 const PORT = 5000;
@@ -21,19 +25,61 @@ app.get("/", (req, res) => res.render("index"));
 app.get("/add-project", (req, res) => res.render("add-project"));
 app.get("/testimonials", (req, res) => res.render("testimonials"));
 app.get("/contact", (req, res) => res.render("contact"));
-app.get("/blog-details", (req, res) => res.render("blog-details"));
 app.get("/facebook", (req, res) => res.render("facebook"));
 app.get("/twitter", (req, res) => res.render("twitter"));
+app.get("/projects", (req, res) => res.render("projects", {blogs : repository.findAll()}));
+
+app.get("/edit-project/:id", (req, res)=> {
+    const { id } = req.params;
+    const dataProject = repository.getDataProjectById(id);
+
+    res.render("edit-project", {dataProject, id});
+})
+
+app.get("/project-details/:id", (req, res) => {
+    const { id } = req.params;
+    const dataProject = repository.getDataProjectById(id);
+    const descriptionArray = dataProject.description.split("\n");
+
+    res.render("project-details", {dataProject, descriptionArray});
+})
+
+app.get("/delete-project/:id", (req, res) => {
+    const { id } = req.params;
+    repository.deleteDataProjectById(id);
+
+    res.redirect("/projects");
+})
 
 app.post("/add-project", (req, res) => {
-    const { title, start_date, end_date, description, node_js, react_js, next_js, typescript } = req.body;
+    const dataProject = new DataProject(req.body);
 
-    console.log(`title = ${title}`);
-    console.log(`start date = ${start_date}`);
-    console.log(`end-date = ${end_date}`);
-    console.log(`description = ${description}`);
-    console.log(`node js = ${node_js ? "yes" : "no"}`);
-    console.log(`react js = ${react_js ? "yes" : "no"}`);
-    console.log(`next js = ${next_js ? "yes" : "no"}`);
-    console.log(`typescript = ${typescript ? "yes" : "no"}`);
+    // Validation Input
+    if (dataProject.title === "") return alert("Project title must be filled");
+    if (dataProject.title.length > 20 ) return alert("Project title max character is 20");
+    if (dataProject.start_date === "") return alert("Start date must be filled");
+    if (dataProject.end_date === "") return alert("End date must be filled");
+    if (dataProject.description === "") return alert("Description must be filled");
+    if (dataProject.durationInDays <= 0) return alert("End date cannot be less than start date");
+
+    repository.addDataProject(dataProject);
+
+    res.redirect("/projects");
+})
+
+app.post("/edit-project/:id", (req, res) => {
+    const { id } = req.params;
+    const dataProject = new DataProject(req.body);
+
+    // Validation Input
+    if (dataProject.title === "") return alert("Project title must be filled");
+    if (dataProject.title.length > 20 ) return alert("Project title max character is 20");
+    if (dataProject.start_date === "") return alert("Start date must be filled");
+    if (dataProject.end_date === "") return alert("End date must be filled");
+    if (dataProject.description === "") return alert("Description must be filled");
+    if (dataProject.durationInDays <= 0) return alert("End date cannot be less than start date");
+
+    repository.editDataProjectById(id, dataProject);
+
+    res.redirect("/projects");
 })
