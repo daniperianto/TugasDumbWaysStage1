@@ -19,10 +19,35 @@ const DataProject = class {
         this.start_date = json.start_date;
         this.end_date = json.end_date;
         this.description = json.description;
-        this.node_js = json.node_js;
-        this.react_js = json.react_js;
-        this.next_js = json.next_js;
-        this.typescript = json.typescript;
+        this.node_js = false;
+        this.react_js = false;
+        this.next_js = false;
+        this.typescript = false;
+
+        if(json.technologies) {
+            for( let technology of json.technologies) {
+                switch (technology) {
+                    case "node-js":
+                        this.node_js = true;
+                        break;
+                    case "react-js":
+                        this.react_js = true;
+                        break;
+                    case "next-js":
+                        this.next_js = true;
+                        break;
+                    case "typescript":
+                        this.typescript = true;
+                        break;
+                }
+            }
+        } else {
+            this.node_js = json.node_js;
+            this.react_js = json.react_js;
+            this.next_js = json.next_js;
+            this.typescript = json.typescript;
+        }
+        
     }
 
     // change date to dd-
@@ -60,6 +85,13 @@ const DataProject = class {
     }
 
     blogShorter (blogContent, maxLine, maxChar) {
+        // if blog content is short just return blog content unmodified
+        const blogLineArray = blogContent.split("\n");
+        if (blogLineArray.length <= maxLine && blogContent.length <= maxChar) {
+            return blogContent;
+        }
+
+
         const blogContentCut = this.cutBlogContent(blogContent, maxLine, maxChar);
         const contentArray = blogContentCut.split("\n");
         
@@ -79,6 +111,7 @@ const DataProject = class {
     cutBlogContent(blogContent, maxLine, maxChar) {
         const blogLineArray = blogContent.split("\n");
         const maxCharPerLine = maxChar / maxLine;
+        
     
         blogContent = "";
         let lineContent = 0;

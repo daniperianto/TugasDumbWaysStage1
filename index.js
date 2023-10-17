@@ -27,7 +27,14 @@ app.get("/testimonials", (req, res) => res.render("testimonials"));
 app.get("/contact", (req, res) => res.render("contact"));
 app.get("/facebook", (req, res) => res.render("facebook"));
 app.get("/twitter", (req, res) => res.render("twitter"));
-app.get("/projects", (req, res) => res.render("projects", {blogs : repository.findAll()}));
+
+app.get("/projects", async function (req, res) {
+    try {
+        res.render("projects", {blogs : await repository.findAll()});
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 app.get("/edit-project/:id", (req, res)=> {
     const { id } = req.params;
