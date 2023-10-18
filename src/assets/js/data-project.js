@@ -15,6 +15,7 @@ const DataProject = class {
 
 
     getDataFromJson(json) {
+        this.id = json.id;
         this.title = json.title;
         this.start_date = json.start_date;
         this.end_date = json.end_date;
@@ -24,6 +25,7 @@ const DataProject = class {
         this.next_js = false;
         this.typescript = false;
 
+        // the database uses array while front end don't
         if(json.technologies) {
             for( let technology of json.technologies) {
                 switch (technology) {

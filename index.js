@@ -36,29 +36,29 @@ app.get("/projects", async function (req, res) {
     }
 })
 
-app.get("/edit-project/:id", (req, res)=> {
+app.get("/edit-project/:id", async function (req, res) {
     const { id } = req.params;
-    const dataProject = repository.getDataProjectById(id);
+    const dataProject = await repository.getDataProjectById(id);
 
     res.render("edit-project", {dataProject, id});
 })
 
-app.get("/project-details/:id", (req, res) => {
+app.get("/project-details/:id", async function (req, res) {
     const { id } = req.params;
-    const dataProject = repository.getDataProjectById(id);
+    const dataProject = await repository.getDataProjectById(id);
     const descriptionArray = dataProject.description.split("\n");
 
     res.render("project-details", {dataProject, descriptionArray});
 })
 
-app.get("/delete-project/:id", (req, res) => {
+app.get("/delete-project/:id", async function (req, res) {
     const { id } = req.params;
-    repository.deleteDataProjectById(id);
+    await repository.deleteDataProjectById(id);
 
     res.redirect("/projects");
 })
 
-app.post("/add-project", (req, res) => {
+app.post("/add-project", async function (req, res) {
     const dataProject = new DataProject(req.body);
 
     // Validation Input
@@ -69,12 +69,12 @@ app.post("/add-project", (req, res) => {
     if (dataProject.description === "") return alert("Description must be filled");
     if (dataProject.durationInDays <= 0) return alert("End date cannot be less than start date");
 
-    repository.addDataProject(dataProject);
+    await repository.addDataProject(dataProject);
 
     res.redirect("/projects");
 })
 
-app.post("/edit-project/:id", (req, res) => {
+app.post("/edit-project/:id", async function (req, res) {
     const { id } = req.params;
     const dataProject = new DataProject(req.body);
 
@@ -86,7 +86,7 @@ app.post("/edit-project/:id", (req, res) => {
     if (dataProject.description === "") return alert("Description must be filled");
     if (dataProject.durationInDays <= 0) return alert("End date cannot be less than start date");
 
-    repository.editDataProjectById(id, dataProject);
+    await repository.editDataProjectById(id, dataProject);
 
     res.redirect("/projects");
 })

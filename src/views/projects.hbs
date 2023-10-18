@@ -50,7 +50,7 @@
             {{#each blogs}}
             <div class="mb-4 mx-3 blog-list-item">
                 <img class="img-fluid" src="./image/phone.jpg">
-                <a class="mt-2 text-decoration-none" href="/project-details/{{@index}}">
+                <a class="mt-2 text-decoration-none" href="/project-details/{{this.id}}">
                     <h3 class="mb-0 text-black fw-semibold fs-4">{{this.title}}</h3>
                 </a>
                 <p class="m-0 text-secondary">durasi: {{this.duration}}</p>
@@ -84,9 +84,9 @@
                     {{/if}}
                 </div>
                 <div class="d-flex flex-row mt-auto">
-                    <a href="/edit-project/{{@index}}" 
+                    <a href="/edit-project/{{this.id}}" 
                         class="w-50 me-2 bg-black text-white fw-semibold rounded text-center text-decoration-none">edit</a>
-                    <a href="/delete-project/{{@index}}" 
+                    <a href="/delete-project/{{this.id}}" 
                         class="w-50 bg-black text-white fw-semibold rounded text-center text-decoration-none">delete</a>
                 </div>
             </div>
