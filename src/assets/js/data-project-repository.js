@@ -7,9 +7,7 @@ const projects = require('../models/projects')(sequelize, DataTypes)
 
 
 const DataProjectRepository = class {
-    constructor() {
-        this.dataProjectArray = [];
-    }
+    constructor() {}
 
     async findAll() {
         try {

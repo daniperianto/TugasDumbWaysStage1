@@ -4,8 +4,16 @@ const alert = function (message) {
     notifier.notify({
         title: "Alert!",
         message: message,
-        appID: "Add Project"
+        appID: "Personal Web"
     })
 }
 
-module.exports = alert;
+const notification = function (message) {
+    notifier.notify({
+        title: "Notification",
+        message: message,
+        appID: "Personal Web"
+    })
+}
+
+module.exports = { alert, notification };
