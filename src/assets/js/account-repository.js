@@ -11,9 +11,10 @@ const AccountRepository = class {
 
     async findAll() {
         try {
-            let users = await users.findAll();
+            query = "SELECT * FROM users";
+            let users = await sequelize.query(query, {type: QueryTypes.SELECT});
             this.usersArray = [];
-            usernames.forEach( (user) => {
+            users.forEach( (user) => {
                 this.usersArray.push(new Account(user, true));
             })
             return this.usersArray;            
@@ -24,13 +25,8 @@ const AccountRepository = class {
 
     async addAccount(account) {
         try {
-            await users.create({
-                username: account.username,
-                email: account.email,
-                password: account.password,
-                createdAt: new Date(),
-                updatedAt: new Date()
-            });
+            const query = `INSERT INTO users (username, email, password, "createdAt", "updatedAt") VALUES ('${account.username}', '${account.email}', '${account.password}', NOW(), NOW());`
+            await sequelize.query(query, {type: QueryTypes.INSERT});
         } catch (error) {
             console.log(error);
         }
@@ -39,8 +35,9 @@ const AccountRepository = class {
 
     async getAccountById(id) {
         try {
-            let username = await users.findByPk(id);
-            return new Account(username, true);
+            const query = `SELECT * FROM users WHERE id = ${id}`;
+            let account = await sequelize.query(query, {type: QueryTypes.SELECT});
+            return new Account(account[0], true);
         } catch (error) {
             console.log(error);
         }
@@ -48,12 +45,9 @@ const AccountRepository = class {
 
     async getAccountByEmail(email) {
         try {
-            let account = await users.findOne({
-                where: {
-                    email: email
-                }
-            });
-            return new Account(account, true);
+            const query = `SELECT * FROM users WHERE email = '${email}'`;
+            let account = await sequelize.query(query, {type: QueryTypes.SELECT});
+            return new Account(account[0], true);
         } catch (error) {
             console.log(error);
         }
@@ -62,11 +56,8 @@ const AccountRepository = class {
 
     async deleteAccountById(id) {
         try {
-            await users.destroy({
-                where: {
-                    id: id
-                }
-            });
+            const query = `DELETE FROM users WHERE id = ${id}`
+            await sequelize.query(query, {type: QueryTypes.DELETE})
         } catch (error) {
             console.log(error);
         }

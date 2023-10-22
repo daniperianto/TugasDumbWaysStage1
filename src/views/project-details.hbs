@@ -22,16 +22,35 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link text-black mx-2 fs-5" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-black mx-2 fs-5 fw-bold" href="/projects">Project</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-black mx-2 fs-5" href="/testimonials">Testimonial</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-black mx-2 fs-5" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-black mx-2 fs-5 fw-bold" href="/projects">Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-black mx-2 fs-5" href="/testimonials">Testimonial</a>
+                    </li>
                 </ul>
+
+                <div class="navbar-nav me-0 mb-2 mb-lg-0">
+                    {{#if isLogin}}
+                    <div class="nav-item">
+                        <a class="nav-link text-danger mx-2 fs-5 fw-semibold" href="/#">Hallo, {{user}}</a>
+                    </div>
+                    <div class="nav-item me-3">
+                        <a class="nav-link text-black mx-2 fs-5" href="/logout">Logout</a>
+                    </div>
+                    {{else}}
+                    <div class="nav-item">
+                        <a class="nav-link text-black mx-2 fs-5" href="/register">Register</a>
+                    </div>
+                    <div class="nav-item me-3">
+                        <a class="nav-link text-black mx-2 fs-5" href="/login">Login</a>
+                    </div>
+                    {{/if}}
+                </div>
+                
                 <div class="me-5 align-self-center">
                     <a class="nav-link bg-black px-3 py-2 rounded-3 text-white" href="/contact">Contact Me</a>
                 </div>
@@ -48,37 +67,39 @@
 
             <div class="d-flex flex-column flex-md-row blog-information">
                 <div class="me-5 blog-picture flex-grow-1">
-                    <img class="w-100" src="../image/phone.jpg" alt="blog-picture">
+                    <img class="w-100" src="../uploads/{{dataProject.image}}" alt="blog-picture">
                 </div>
 
-                <div class="w-25pe-5">
-                    <h2 class="fw-semibold fs-3 mb-0">Duration</h2>
+                <div class="w-25 pe-5 d-flex flex-column">
+                    <h2 class="fw-semibold fs-3 mb-0 mt-3">Duration</h2>
                     <div>
                         <p class="fs-5 fw-semibold text-secondary m-0 text-nowrap">
                             <img class="icon mt-2" src="../image/icon/calendar_icon.svg">{{dataProject.idnStartDate}} - {{dataProject.idnEndDate}}</p>
-                        <p class="fs-5 fw-semibold text-secondary m-0">
+                        <p class="fs-5 fw-semibold text-secondary m-0 text-nowrap">
                             <img class="icon mt-2" src="../image/icon/clock_icon.svg">{{dataProject.duration}}</p>
                     </div>
 
-                    <h2 class="fw-semibold fs-3 mt-4 mb-0">Technologies</h2>
-                    <div class="blog-technology">
+                    <h2 class="fw-semibold fs-3 mt-4 mb-2">Technologies</h2>
+                    <div class="blog-technology mb-4">
                         {{#if dataProject.react_js}}
-                        <p class="fs-5 fw-semibold text-secondary m-0">
-                            <img class="icon mt-2" src="../image/icon/react_js_icon.svg">React Js</p>
+                        <p class="fs-5 fw-semibold text-secondary m-0 text-nowrap">
+                            <img class="icon mb-2" src="../image/icon/react_js_icon.svg">React Js</p>
                         {{/if}}
                         {{#if dataProject.next_js}}
-                        <p class="fs-5 fw-semibold text-secondary m-0">
-                            <img class="icon mt-2" src="../image/icon/next_js_icon.svg">Next Js</p>
+                        <p class="fs-5 fw-semibold text-secondary m-0 text-nowrap">
+                            <img class="icon mb-2" src="../image/icon/next_js_icon.svg">Next Js</p>
                         {{/if}}
                         {{#if dataProject.node_js}}
-                        <p class="fs-5 fw-semibold text-secondary m-0">
-                            <img class="icon mt-2" src="../image/icon/node_js_icon.svg">Node Js</p>
+                        <p class="fs-5 fw-semibold text-secondary m-0 text-nowrap">
+                            <img class="icon mb-2" src="../image/icon/node_js_icon.svg">Node Js</p>
                         {{/if}}
                         {{#if dataProject.typescript}}
-                        <p class="fs-5 fw-semibold text-secondary m-0">
-                            <img class="icon mt-2" src="../image/icon/typescript_icon.svg">Typescript</p>
+                        <p class="fs-5 fw-semibold text-secondary m-0 text-nowrap">
+                            <img class="icon mb-2" src="../image/icon/typescript_icon.svg">Typescript</p>
                         {{/if}}
                     </div>
+
+                    <h3 class="fw-semibold fs-4 mt-auto mb-3 text-nowrap text-secondary">By {{dataProject.author}}</h3>
                 </div>
             </div>
 

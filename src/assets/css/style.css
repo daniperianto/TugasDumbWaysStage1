@@ -77,3 +77,13 @@ select {
     height: 500px !important;
 }
 
+.image-container {
+    height: 180px !important;
+    width: 100% !important;
+}
+
+.edit-image {
+    height: 180px;
+    width: auto;
+}
+

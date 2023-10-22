@@ -11,10 +11,11 @@ const DataProjectRepository = class {
 
     async findAll() {
         try {
-            let allProjects = await projects.findAll();
+            const query = "SELECT p.id, p.author_id, p.title, p.start_date, p.end_date, p.description, p.technologies, p.image, u.username FROM projects p LEFT JOIN users u ON p.author_id = u.id"
+            let allProjects = await sequelize.query(query, {type: QueryTypes.SELECT});
             this.dataProjectArray = [];
             allProjects.forEach( (project) => {
-                this.dataProjectArray.unshift(new DataProject(project));
+                this.dataProjectArray.unshift(new DataProject(project, project.author_id));
             })
             return this.dataProjectArray;            
         } catch (error) {
@@ -30,20 +31,19 @@ const DataProjectRepository = class {
             if (dataProject.next_js) technologies.push("next-js");
             if (dataProject.typescript) technologies.push("typescript");
 
+            console.log(technologies)
+
             await projects.create({
                 title: dataProject.title,
+                author_id: dataProject.author_id,
                 start_date: dataProject.start_date,
                 end_date: dataProject.end_date,
                 description: dataProject.description,
                 technologies: technologies,
+                image: dataProject.image,
                 createdAt: new Date(),
                 updatedAt: new Date()
             });
-
-
-            // const query = `INSERT INTO projects (title, start_date, end_date, description, technologies, "createdAt", "updatedAt") VALUES (${dataProject.title}, ${dataProject.start_date}, ${dataProject.end_date}, ${dataProject.description}, ARRAY[${technologies}], NOW(), NOW())`;
-
-            // await sequelize.query(query, {type: QueryTypes.INSERT});
         } catch (error) {
             console.log(error);
         }
@@ -52,8 +52,9 @@ const DataProjectRepository = class {
 
     async getDataProjectById(id) {
         try {
-            let project = await projects.findByPk(id);
-            return new DataProject(project);
+            const query = `SELECT p.id, p.author_id, p.title, p.start_date, p.end_date, p.description, p.technologies, p.image, u.username FROM projects p LEFT JOIN users u ON p.author_id = u.id WHERE p.id = ${id}`
+            let project = await sequelize.query(query, {type: QueryTypes.SELECT});
+            return new DataProject(project[0], project[0].author_id);
         } catch (error) {
             console.log(error);
         }
@@ -61,11 +62,8 @@ const DataProjectRepository = class {
 
     async deleteDataProjectById(id) {
         try {
-            await projects.destroy({
-                where: {
-                    id: id
-                }
-            });
+            const query = `DELETE FROM projects WHERE id = ${id}`;
+            await sequelize.query(query, {type: QueryTypes.DELETE});
         } catch (error) {
             console.log(error);
         }
@@ -81,10 +79,12 @@ const DataProjectRepository = class {
 
             await projects.update({
                 title: dataProject.title,
+                author_id: dataProject.author_id,
                 start_date: dataProject.start_date,
                 end_date: dataProject.end_date,
                 description: dataProject.description,
                 technologies: technologies,
+                image: dataProject.image,
                 updatedAt: new Date()
             }, {
                 where: {

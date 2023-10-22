@@ -2,8 +2,9 @@ const IDNdateParser = require("./idn-date");
 
 const DataProject = class {
     
-    constructor(json) {
+    constructor(json, author_id) {
         this.getDataFromJson(json);
+        this.author_id = author_id;
         this.durationInDays = this.getDurationProjectInDays(this.start_date, this.end_date);
         this.duration = this.getDurationProjectInMonthToString(this.durationInDays);
         this.blogOverflow = this.isOverflow(this.description, 7, 195);
@@ -24,6 +25,10 @@ const DataProject = class {
         this.react_js = false;
         this.next_js = false;
         this.typescript = false;
+        this.author = json.username;
+        this.image = json.image
+
+        console.log("json tect: " + json.technologies)
 
         // the database uses array while front end don't
         if(json.technologies) {

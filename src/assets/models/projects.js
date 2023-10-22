@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   projects.init({
     title: DataTypes.STRING,
+    author_id: DataTypes.INTEGER,
     start_date: DataTypes.DATEONLY,
     end_date: DataTypes.DATEONLY,
     description: DataTypes.STRING,

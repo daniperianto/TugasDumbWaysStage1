@@ -22,16 +22,36 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link text-black mx-2 fs-5" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-black mx-2 fs-5" href="projects">Project</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-black mx-2 fs-5" href="testimonials">Testimonial</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-black mx-2 fs-5" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-black mx-2 fs-5" href="projects">Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-black mx-2 fs-5" href="testimonials">Testimonial</a>
+                    </li>
                 </ul>
+
+                <div class="navbar-nav me-0 mb-2 mb-lg-0">
+                    {{#if isLogin}}
+                    <div class="nav-item">
+                        <a class="nav-link text-danger mx-2 fs-5 fw-semibold" href="/#">Hallo, {{user}}</a>
+                    </div>
+                    <div class="nav-item me-3">
+                        <a class="nav-link text-black mx-2 fs-5" href="/logout">Logout</a>
+                    </div>
+                    {{else}}
+                    <div class="nav-item">
+                        <a class="nav-link text-black mx-2 fs-5" href="/register">Register</a>
+                    </div>
+                    <div class="nav-item me-3">
+                        <a class="nav-link text-black mx-2 fs-5" href="/login">Login</a>
+                    </div>
+                    {{/if}}
+                </div>
+
+
                 <div class="me-5 align-self-center">
                     <a class="nav-link bg-black px-3 py-2 rounded-3 text-white" href="contact">Contact Me</a>
                 </div>
